@@ -27,8 +27,9 @@ function CharactersComponent() {
   data.map((val)=>{cards.push(<CardComponent data={val}/>)})
   return (
    <React.Fragment>
-    <button disabled={prevPage==null?true:false} onClick={()=>{setPage(prevPage)}}>Prev</button>
-    <button disabled={isPreviousData && nextPage?true:false} onClick={()=>{setPage(nextPage)}}>Next</button>
+    <button disabled={prevPage==null?true:false} onClick={()=>{setPage(prevPage)}}>Prev ({prevPage?.split('=')[1]})</button>
+    
+    <button disabled={isPreviousData && nextPage==null?true:false} onClick={()=>{setPage(nextPage)}}>Next ({nextPage?.split('=')[1]})</button>
     {cards}
    </React.Fragment>
   )
